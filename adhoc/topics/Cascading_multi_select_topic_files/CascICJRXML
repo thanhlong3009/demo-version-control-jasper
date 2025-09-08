@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b5a42716-54a3-408c-8cc3-c7a1547a680d">
+	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.reportUnit" value="/adhoc/topics/Cascading_multi_select_topic"/>
+	<property name="com.jaspersoft.studio.report.unit.description" value="Shows cascading input controls. Multi-select and single select queries"/>
+	<property name="com.jaspersoft.studio.report.description" value="CascICJRXML description"/>
+	<import value="java.util.*"/>
+	<parameter name="Country_multi_select" class="java.util.Collection">
+		<defaultValueExpression><![CDATA[new ArrayList(Arrays.asList(new String[] {"USA"}))]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Cascading_state_multi_select" class="java.util.Collection">
+		<defaultValueExpression><![CDATA[new ArrayList(Arrays.asList(new String[] {"CA"}))]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Cascading_name_single_select" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from accounts
+where $X{IN, billing_address_state, Cascading_state_multi_select}
+and $X{IN, billing_address_country, Country_multi_select}
+AND name = $P{Cascading_name_single_select}]]>
+	</queryString>
+	<field name="id" class="java.lang.String">
+		<property name="adhoc.display" value="ID"/>
+	</field>
+	<field name="date_entered" class="java.sql.Timestamp">
+		<property name="adhoc.display" value="Date Entered"/>
+	</field>
+	<field name="date_modified" class="java.sql.Timestamp">
+		<property name="adhoc.display" value="Date Modified"/>
+	</field>
+	<field name="modified_user_id" class="java.lang.String">
+		<property name="adhoc.display" value="Modified User ID"/>
+	</field>
+	<field name="assigned_user_id" class="java.lang.String">
+		<property name="adhoc.display" value="Assigned User ID"/>
+	</field>
+	<field name="created_by" class="java.lang.String">
+		<property name="adhoc.display" value="Created By"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="adhoc.display" value="Name"/>
+	</field>
+	<field name="parent_id" class="java.lang.String">
+		<property name="adhoc.display" value="Parent ID"/>
+	</field>
+	<field name="account_type" class="java.lang.String">
+		<property name="adhoc.display" value="Account Type"/>
+	</field>
+	<field name="industry" class="java.lang.String">
+		<property name="adhoc.display" value="Industry"/>
+	</field>
+	<field name="annual_revenue" class="java.lang.String">
+		<property name="adhoc.display" value="Annual Revenue"/>
+	</field>
+	<field name="phone_fax" class="java.lang.String">
+		<property name="adhoc.display" value="Phone Fax"/>
+	</field>
+	<field name="billing_address_street" class="java.lang.String">
+		<property name="adhoc.display" value="Billing Address Street"/>
+	</field>
+	<field name="billing_address_city" class="java.lang.String">
+		<property name="adhoc.display" value="Billing Address City"/>
+	</field>
+	<field name="billing_address_state" class="java.lang.String">
+		<property name="adhoc.display" value="Billing Address State"/>
+	</field>
+	<field name="billing_address_postalcode" class="java.lang.String">
+		<property name="adhoc.display" value="Billing Address Postalcode"/>
+	</field>
+	<field name="billing_address_country" class="java.lang.String">
+		<property name="adhoc.display" value="Billing Address Country"/>
+	</field>
+	<field name="description" class="java.lang.String">
+		<property name="adhoc.display" value="Description"/>
+	</field>
+	<field name="rating" class="java.lang.String">
+		<property name="adhoc.display" value="Rating"/>
+	</field>
+	<field name="phone_office" class="java.lang.String">
+		<property name="adhoc.display" value="Phone Office"/>
+	</field>
+	<field name="phone_alternate" class="java.lang.String">
+		<property name="adhoc.display" value="Phone Alternate"/>
+	</field>
+	<field name="email1" class="java.lang.String">
+		<property name="adhoc.display" value="E-mail 1"/>
+	</field>
+	<field name="email2" class="java.lang.String">
+		<property name="adhoc.display" value="E-mail 2"/>
+	</field>
+	<field name="website" class="java.lang.String">
+		<property name="adhoc.display" value="Website"/>
+	</field>
+	<field name="ownership" class="java.lang.String">
+		<property name="adhoc.display" value="Ownership"/>
+	</field>
+	<field name="employees" class="java.lang.String">
+		<property name="adhoc.display" value="Employees"/>
+	</field>
+	<field name="sic_code" class="java.lang.String">
+		<property name="adhoc.display" value="Sic Code"/>
+	</field>
+	<field name="ticker_symbol" class="java.lang.String">
+		<property name="adhoc.display" value="Ticket Symbol"/>
+	</field>
+	<field name="shipping_address_street" class="java.lang.String">
+		<property name="adhoc.display" value="Shipping Address Street"/>
+	</field>
+	<field name="shipping_address_city" class="java.lang.String">
+		<property name="adhoc.display" value="Shipping Address City"/>
+	</field>
+	<field name="shipping_address_state" class="java.lang.String">
+		<property name="adhoc.display" value="Shipping Address State"/>
+	</field>
+	<field name="shipping_address_postalcode" class="java.lang.String">
+		<property name="adhoc.display" value="Shipping Address Postalcode"/>
+	</field>
+	<field name="shipping_address_country" class="java.lang.String">
+		<property name="adhoc.display" value="Shipping Address Country"/>
+	</field>
+	<field name="deleted" class="java.lang.Boolean">
+		<property name="adhoc.display" value="Deleted"/>
+	</field>
+	<group name="Country">
+		<groupExpression><![CDATA[$F{billing_address_country}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement x="120" y="20" width="154" height="20" uuid="0aa990b1-dc9f-4fd1-a11d-8c985e4f7e99"/>
+					<textFieldExpression><![CDATA[$F{billing_address_country}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="5" y="20" width="100" height="20" uuid="fcb61846-f84a-444e-b722-013849f9bda4"/>
+					<text><![CDATA[Country]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<textField evaluationTime="Group" evaluationGroup="Country" pattern="#,##0">
+					<reportElement x="644" y="16" width="144" height="20" uuid="19abbc21-48f3-4ca3-8355-b8bd2400500d"/>
+					<textFieldExpression><![CDATA[$V{Country_COUNT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="237" y="16" width="100" height="20" uuid="a37490bc-26fd-4bdd-8115-7b410437f70f"/>
+					<text><![CDATA[Accounts for Country]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="351" y="16" width="154" height="20" uuid="96e3d61d-231f-4a2d-b784-9e897266f110"/>
+					<textFieldExpression><![CDATA[$F{billing_address_country}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="State">
+		<groupExpression><![CDATA[$F{billing_address_state}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement x="120" y="14" width="120" height="20" uuid="b2ffa8db-b348-41c7-8fd8-bea8c120a366"/>
+					<textFieldExpression><![CDATA[$F{billing_address_state}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="5" y="14" width="100" height="20" uuid="fd8a2e83-3a06-4f5d-97dd-76dd6e29d534"/>
+					<text><![CDATA[State]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="251" y="14" width="154" height="20" uuid="e3aba1a8-251e-4406-b865-afac1874ced0"/>
+					<textFieldExpression><![CDATA[$F{billing_address_country}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<staticText>
+					<reportElement x="237" y="14" width="100" height="20" uuid="076a2671-e316-4bbc-b1a8-c50d00927280"/>
+					<text><![CDATA[Accounts for State]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="351" y="14" width="154" height="20" uuid="939f2adf-16ee-495b-890c-9d7a5c9d51e5"/>
+					<textFieldExpression><![CDATA[$F{billing_address_country}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="505" y="14" width="120" height="20" uuid="bf03c77e-fb37-4585-899d-5d6773c2109c"/>
+					<textFieldExpression><![CDATA[$F{billing_address_state}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Group" evaluationGroup="Country" pattern="#,##0">
+					<reportElement x="644" y="14" width="144" height="20" uuid="2025207a-db1f-42b7-92ca-47076bd2102f"/>
+					<textFieldExpression><![CDATA[$V{State_COUNT}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="62">
+			<textField>
+				<reportElement x="5" y="0" width="215" height="28" uuid="ae3994c7-63a1-41f8-95b0-4cd7e91af293"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cascading parameter test"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="285" y="0" width="270" height="20" uuid="4f2a1487-4700-45c2-be26-686123a2ba80"/>
+				<textFieldExpression><![CDATA[$P{Country_multi_select}.toString()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="285" y="20" width="270" height="20" uuid="e1dd72c1-0269-4239-888a-1d0177552b65"/>
+				<textFieldExpression><![CDATA[$P{Cascading_state_multi_select}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="40" width="270" height="20" uuid="a5ce6c42-b9ae-4ec8-a013-2ba36e9f9dad"/>
+				<textFieldExpression><![CDATA[$P{Cascading_name_single_select}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="33">
+			<staticText>
+				<reportElement x="0" y="13" width="100" height="20" uuid="fd277d97-a028-4be3-8c73-f164b2505a51"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="13" width="100" height="20" uuid="fa696ed8-3413-4911-a1ef-3984c8940e13"/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="505" y="13" width="100" height="20" uuid="89ceb98c-375a-4b17-879c-37c901fe8aa3"/>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="644" y="13" width="100" height="20" uuid="3c8feb4d-6913-47ec-8021-9c689bccb416"/>
+				<text><![CDATA[Account Count]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="13"/>
+	</columnHeader>
+	<detail>
+		<band height="27">
+			<textField>
+				<reportElement x="0" y="0" width="237" height="20" uuid="90f87ce1-cc2b-42bc-b2ff-d1b30076f545"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="0" width="243" height="20" uuid="11c2cbb5-c544-483f-bc2f-4135afaa19cc"/>
+				<textFieldExpression><![CDATA[$F{billing_address_street}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="505" y="0" width="144" height="20" uuid="8e8c61f6-e3b5-469d-80ab-f2fa16e7ef32"/>
+				<textFieldExpression><![CDATA[$F{billing_address_city}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="16"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18"/>
+	</pageFooter>
+	<summary>
+		<band height="18"/>
+	</summary>
+</jasperReport>
