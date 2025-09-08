@@ -5,6 +5,7 @@
 	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
 	<property name="ireport.jasperserver.reportUnit" value="/reports/interactive/Demo/Report_Demo"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/interactive/Demo/Report_Demo_files/Report_Demo_"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -12,7 +13,12 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="169" y="30" width="100" height="30" uuid="07abc96b-a54b-4fbb-966f-271072e1742a"/>
+				<text><![CDATA[álkdmasklmdaklsmd]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
