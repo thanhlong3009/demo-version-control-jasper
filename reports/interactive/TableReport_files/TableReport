@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TableReport" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" isSummaryWithPageHeaderAndFooter="true" uuid="49d7a444-c385-4266-a1b3-94a816ec7b05">
+	<property name="net.sf.jasperreports.print.create.bookmarks" value="true"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/interactive/TableReport"/>
+	<property name="com.jaspersoft.studio.report.unit.description" value="Table Report"/>
+	<property name="com.jaspersoft.studio.report.description" value="Table Report"/>
+	<style name="Sans_Normal" isDefault="true" fontName="DejaVu Sans" fontSize="9" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Bold" fontName="DejaVu Sans" fontSize="9" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Italic" fontName="DejaVu Sans" fontSize="9" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+	<subDataset name="TableDataset" uuid="dc83c932-da76-474d-b1e9-b52afd8f1b3b">
+		<property name="net.sf.jasperreports.data.adapter" value="repo:/reports/interactive/CsvDataAdapter"/>
+		<queryString language="csv">
+			<![CDATA[]]>
+		</queryString>
+		<field name="id" class="java.lang.Integer">
+			<fieldDescription><![CDATA[id]]></fieldDescription>
+		</field>
+		<field name="name" class="java.lang.String">
+			<fieldDescription><![CDATA[name]]></fieldDescription>
+		</field>
+		<field name="address" class="java.lang.String">
+			<fieldDescription><![CDATA[street address]]></fieldDescription>
+		</field>
+		<field name="city" class="java.lang.String">
+			<fieldDescription><![CDATA[city]]></fieldDescription>
+		</field>
+		<field name="state" class="java.lang.String">
+			<fieldDescription><![CDATA[state]]></fieldDescription>
+		</field>
+		<field name="latitude" class="java.lang.String">
+			<fieldDescription><![CDATA[latitude]]></fieldDescription>
+		</field>
+		<field name="longitude" class="java.lang.String">
+			<fieldDescription><![CDATA[longitude]]></fieldDescription>
+		</field>
+		<field name="moveInDate" class="java.util.Date">
+			<fieldDescription><![CDATA[moveInDate]]></fieldDescription>
+		</field>
+		<sortField name="city" order="Descending"/>
+		<variable name="CityNumber" class="java.lang.Integer" incrementType="Group" incrementGroup="CityGroup" calculation="Count">
+			<variableExpression><![CDATA[Boolean.TRUE]]></variableExpression>
+		</variable>
+		<variable name="latitude" class="java.lang.String" resetType="Group" resetGroup="CityGroup" calculation="Highest">
+			<variableExpression><![CDATA[$F{latitude}]]></variableExpression>
+		</variable>
+		<variable name="longitude" class="java.lang.String" resetType="Group" resetGroup="CityGroup" calculation="Highest">
+			<variableExpression><![CDATA[$F{longitude}]]></variableExpression>
+		</variable>
+		<group name="CityGroup" minHeightToStartNewPage="60">
+			<groupExpression><![CDATA[$F{city}]]></groupExpression>
+		</group>
+	</subDataset>
+	<title>
+		<band height="70">
+			<line>
+				<reportElement x="0" y="0" width="760" height="1" uuid="98b557f6-0273-4991-8300-2c60a0b22aa9"/>
+			</line>
+			<textField isBlankWhenNull="true" bookmarkLevel="1">
+				<reportElement key="report_title" style="Sans_Normal" x="123" y="10" width="515" height="30" uuid="9746bfd5-efdd-425d-bba3-61893811041b"/>
+				<textElement textAlignment="Center">
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Address Report"]]></textFieldExpression>
+				<anchorNameExpression><![CDATA["Title"]]></anchorNameExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="Sans_Normal" x="123" y="40" width="515" height="20" uuid="479d7cad-4d79-4067-b0ad-6914dd63ce3e"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CSV Data Adapter"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="40">
+			<line>
+				<reportElement x="0" y="10" width="760" height="1" uuid="babad06e-d666-4b1e-8553-25039c68de47"/>
+			</line>
+			<textField>
+				<reportElement x="323" y="20" width="80" height="15" uuid="640d562e-5ce4-4f92-a016-9c3008b5edf1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="403" y="20" width="75" height="15" uuid="34deccec-ed34-466d-98be-ec751f5bd3d5"/>
+				<textFieldExpression><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="127">
+			<componentElement>
+				<reportElement x="0" y="0" width="760" height="120" uuid="c6b9ce9b-8716-4e42-b4e4-0d9ea0c865fe"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="TableDataset" uuid="10d6e4a5-e302-4f78-9dcf-165f3f7647fa"/>
+					<jr:columnGroup width="750" uuid="f7acf0fa-fb0c-4234-bc7f-4e63f8a86f37">
+						<jr:groupHeader groupName="CityGroup">
+							<jr:cell height="55">
+								<textField evaluationTime="Group" evaluationGroup="CityGroup" hyperlinkType="ReportExecution" bookmarkLevel="1">
+									<reportElement style="Sans_Bold" mode="Opaque" x="0" y="5" width="750" height="15" backcolor="#C0C0C0" uuid="c3c0cf8b-fa02-4701-9ff9-c6cbf28f6484"/>
+									<box leftPadding="5">
+										<bottomPen lineWidth="1.0"/>
+									</box>
+									<textFieldExpression><![CDATA["  " + String.valueOf($V{CityNumber}) + ". " + String.valueOf($F{city})]]></textFieldExpression>
+									<anchorNameExpression><![CDATA[String.valueOf($F{city})]]></anchorNameExpression>
+									<hyperlinkParameter name="jr.uri">
+										<hyperlinkParameterExpression><![CDATA["/reports/MapReport.jasper"]]></hyperlinkParameterExpression>
+									</hyperlinkParameter>
+									<hyperlinkParameter name="latitude">
+										<hyperlinkParameterExpression><![CDATA[$V{latitude}]]></hyperlinkParameterExpression>
+									</hyperlinkParameter>
+									<hyperlinkParameter name="longitude">
+										<hyperlinkParameterExpression><![CDATA[$V{longitude}]]></hyperlinkParameterExpression>
+									</hyperlinkParameter>
+								</textField>
+								<frame>
+									<reportElement mode="Opaque" x="85" y="25" width="445" height="25" backcolor="#FFC0CB" uuid="d79501b3-1446-49e9-ba03-4a0ac3e835c7"/>
+									<box>
+										<pen lineWidth="1.0" lineColor="#FF0000"/>
+									</box>
+									<frame>
+										<reportElement mode="Opaque" x="150" y="5" width="150" height="15" backcolor="#90EE90" uuid="0dc3fd41-3377-444b-a272-1e17369fad77"/>
+										<box>
+											<pen lineWidth="1.0" lineColor="#00FF00"/>
+										</box>
+										<frame>
+											<reportElement mode="Opaque" x="55" y="5" width="20" height="5" backcolor="#9090EE" uuid="92b40a20-60c8-47cb-82cc-bef557b03334"/>
+											<box>
+												<pen lineWidth="1.0" lineColor="#0000FF"/>
+											</box>
+										</frame>
+									</frame>
+								</frame>
+							</jr:cell>
+						</jr:groupHeader>
+						<jr:groupFooter groupName="CityGroup">
+							<jr:cell height="20">
+								<textField>
+									<reportElement style="Sans_Bold" x="690" y="3" width="30" height="15" uuid="2cf21c92-93e3-420e-a080-ab5c3d7729f4"/>
+									<textElement textAlignment="Right"/>
+									<textFieldExpression><![CDATA[$V{CityGroup_COUNT}]]></textFieldExpression>
+								</textField>
+								<staticText>
+									<reportElement style="Sans_Bold" x="630" y="3" width="60" height="15" uuid="47e14c44-549e-4f76-8857-8287b8905919"/>
+									<textElement textAlignment="Right"/>
+									<text><![CDATA[Count :]]></text>
+								</staticText>
+							</jr:cell>
+						</jr:groupFooter>
+						<jr:column width="30" uuid="9eb3bac4-1d35-49e9-855f-c2cc337b4d20">
+							<jr:columnHeader height="60" rowSpan="3">
+								<textField>
+									<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="30" height="60" forecolor="#FFFFFF" backcolor="#333333" uuid="ea02e014-eaa3-4f4b-9b4a-e427d3d5f918"/>
+									<textElement textAlignment="Left"/>
+									<textFieldExpression><![CDATA["ID"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField bookmarkLevel="2">
+									<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="15" uuid="bf0064af-1489-4e27-88db-b7c627b04da3"/>
+									<box leftPadding="5" rightPadding="5">
+										<leftPen lineWidth="0.5"/>
+										<bottomPen lineWidth="0.5"/>
+									</box>
+									<textElement textAlignment="Right"/>
+									<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+									<anchorNameExpression><![CDATA[$F{name} + " (" + $F{id} + ")"]]></anchorNameExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="b8cdf52b-a9c1-4961-b621-c004da912342">
+							<jr:columnHeader height="60" rowSpan="3">
+								<staticText>
+									<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="80" height="60" forecolor="#FFFFFF" backcolor="#333333" uuid="754bd02c-ce7a-4400-9f3d-28ba3cb1d399"/>
+									<text><![CDATA[Name]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField textAdjust="StretchHeight">
+									<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="80" height="15" uuid="5970d131-2170-4bc2-973e-5b6ed340b678"/>
+									<box leftPadding="5" rightPadding="5">
+										<leftPen lineWidth="0.5"/>
+										<bottomPen lineWidth="0.5"/>
+									</box>
+									<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="100" uuid="2f45bb71-be10-4356-8bd9-80bcc2ebd057">
+							<jr:columnHeader height="60" rowSpan="3">
+								<textField>
+									<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="100" height="60" forecolor="#FFFFFF" backcolor="#333333" uuid="258bcf43-b120-4a49-90ec-f1cc743bc4d7"/>
+									<textFieldExpression><![CDATA["Street"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField textAdjust="StretchHeight">
+									<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="15" uuid="ead40cf1-c00e-41e6-89ca-a49fd35fcf36"/>
+									<box leftPadding="5" rightPadding="5">
+										<leftPen lineWidth="0.5"/>
+										<bottomPen lineWidth="0.5"/>
+									</box>
+									<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="75" uuid="cdce3436-327c-475a-9cf0-6740cfa72545">
+							<jr:columnHeader height="60" rowSpan="3">
+								<textField>
+									<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="75" height="60" forecolor="#FFFFFF" backcolor="#333333" uuid="3514dd3e-f733-41b8-9725-7ca1724d567c"/>
+									<textFieldExpression><![CDATA["Move-In Date"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell height="15">
+								<textField textAdjust="StretchHeight" pattern="yyyy-MM-dd">
+									<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="75" height="15" uuid="03aeafb2-156b-4b22-8665-5afed412cb9a"/>
+									<box leftPadding="5" rightPadding="5">
+										<leftPen lineWidth="0.5"/>
+										<bottomPen lineWidth="0.5"/>
+										<rightPen lineWidth="0.5"/>
+									</box>
+									<textFieldExpression><![CDATA[$F{moveInDate}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:columnGroup width="90" uuid="b704fb28-9aca-4a37-908f-bfeead5cb28c">
+							<jr:columnHeader height="20">
+								<textField>
+									<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="90" height="20" forecolor="#FFFFFF" backcolor="#333333" uuid="a7b477b6-97d6-421a-a242-f971c46667d8"/>
+									<textFieldExpression><![CDATA["Position"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:column width="45" uuid="48a975b9-1d95-4890-8922-9f5deef4fb79">
+								<jr:columnHeader height="40" rowSpan="2">
+									<textField>
+										<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="45" height="40" forecolor="#FFFFFF" backcolor="#333333" uuid="f02d457a-63e2-41b0-9150-f9568165fa13"/>
+										<textFieldExpression><![CDATA["Lat"]]></textFieldExpression>
+									</textField>
+								</jr:columnHeader>
+								<jr:detailCell height="15">
+									<textField textAdjust="StretchHeight" pattern="yyyy-MM-dd">
+										<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="15" uuid="ffa7324c-7d46-4663-9d9a-039132c9474d"/>
+										<box leftPadding="5" rightPadding="5">
+											<leftPen lineWidth="0.5"/>
+											<bottomPen lineWidth="0.5"/>
+											<rightPen lineWidth="0.5"/>
+										</box>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{latitude}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="45" uuid="788fe089-2c3b-4505-931c-ec0d725e59ee">
+								<jr:columnHeader height="40" rowSpan="2">
+									<textField>
+										<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="45" height="40" forecolor="#FFFFFF" backcolor="#333333" uuid="057335ec-7c43-4911-9c26-6c45ecaa3980"/>
+										<textFieldExpression><![CDATA["Long"]]></textFieldExpression>
+									</textField>
+								</jr:columnHeader>
+								<jr:detailCell height="15">
+									<textField textAdjust="StretchHeight" pattern="yyyy-MM-dd">
+										<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="15" uuid="8770addf-f61c-4afe-8223-9a9914ef4053"/>
+										<box leftPadding="5" rightPadding="5">
+											<leftPen lineWidth="0.5"/>
+											<bottomPen lineWidth="0.5"/>
+											<rightPen lineWidth="0.5"/>
+										</box>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{longitude}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:columnGroup>
+						<jr:columnGroup width="375" uuid="1a313fca-94ed-4658-b095-aa21a551cc0a">
+							<jr:columnHeader height="20">
+								<textField>
+									<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="375" height="20" forecolor="#FFFFFF" backcolor="#333333" uuid="df6aca92-b2e5-4045-8c20-c13ab6126f8b"/>
+									<textFieldExpression><![CDATA["Repeated Columns Group"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:column width="30" uuid="4f185e8f-eb67-4b0c-9551-d71761be5ad1">
+								<jr:columnHeader height="40" rowSpan="2">
+									<textField>
+										<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="30" height="40" forecolor="#FFFFFF" backcolor="#333333" uuid="d9f5bd6e-d965-4326-8621-aadfd8a466b3"/>
+										<textElement textAlignment="Left"/>
+										<textFieldExpression><![CDATA["ID"]]></textFieldExpression>
+									</textField>
+								</jr:columnHeader>
+								<jr:detailCell height="15">
+									<textField>
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="15" uuid="b8d864ec-fdd7-48f4-a4ea-faed3fa5242e"/>
+										<box leftPadding="5" rightPadding="5">
+											<leftPen lineWidth="0.5"/>
+											<bottomPen lineWidth="0.5"/>
+										</box>
+										<textElement textAlignment="Right"/>
+										<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+										<anchorNameExpression><![CDATA[$F{name} + " (" + $F{id} + ")"]]></anchorNameExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="80" uuid="8591483a-f224-42f0-a27e-3f8751b3dc60">
+								<jr:columnHeader height="40" rowSpan="2">
+									<staticText>
+										<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="80" height="40" forecolor="#FFFFFF" backcolor="#333333" uuid="8bd0b2e6-4671-4529-b71f-10723b57c171"/>
+										<text><![CDATA[Name]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell height="15">
+									<textField textAdjust="StretchHeight">
+										<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="80" height="15" uuid="0b11bac3-0a20-4a04-a7a0-d4859a2b0de3"/>
+										<box leftPadding="5" rightPadding="5">
+											<leftPen lineWidth="0.5"/>
+											<bottomPen lineWidth="0.5"/>
+										</box>
+										<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="100" uuid="99b15e76-f134-42ad-b277-11ccf1dffb58">
+								<jr:columnHeader height="40" rowSpan="2">
+									<textField>
+										<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="100" height="40" forecolor="#FFFFFF" backcolor="#333333" uuid="eafa1aad-2113-48f9-8683-27328f402b10"/>
+										<textFieldExpression><![CDATA["Street"]]></textFieldExpression>
+									</textField>
+								</jr:columnHeader>
+								<jr:detailCell height="15">
+									<textField textAdjust="StretchHeight">
+										<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="15" uuid="a9d47f06-0d40-4f5c-997d-1740cb4dd20f"/>
+										<box leftPadding="5" rightPadding="5">
+											<leftPen lineWidth="0.5"/>
+											<bottomPen lineWidth="0.5"/>
+										</box>
+										<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="75" uuid="7bb9464c-efb0-4111-b28e-5f3d4fea8596">
+								<jr:columnHeader height="40" rowSpan="2">
+									<textField>
+										<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="75" height="40" forecolor="#FFFFFF" backcolor="#333333" uuid="9b444fab-e660-4204-a4e8-3cdd835669f8"/>
+										<textFieldExpression><![CDATA["Move-In Date"]]></textFieldExpression>
+									</textField>
+								</jr:columnHeader>
+								<jr:detailCell height="15">
+									<textField textAdjust="StretchHeight" pattern="yyyy-MM-dd">
+										<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="75" height="15" uuid="6c9a2686-4d84-4576-9311-859c5f3ef9e0"/>
+										<box leftPadding="5" rightPadding="5">
+											<leftPen lineWidth="0.5"/>
+											<bottomPen lineWidth="0.5"/>
+											<rightPen lineWidth="0.5"/>
+										</box>
+										<textFieldExpression><![CDATA[$F{moveInDate}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:columnGroup width="90" uuid="f7c629fa-6634-4289-a53b-af55b9633b88">
+								<jr:columnHeader height="20">
+									<textField>
+										<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="90" height="20" forecolor="#FFFFFF" backcolor="#333333" uuid="aa57482d-2aae-44e5-8163-0c0c04b0f3d7"/>
+										<textFieldExpression><![CDATA["Position"]]></textFieldExpression>
+									</textField>
+								</jr:columnHeader>
+								<jr:column width="45" uuid="04d8707a-6429-4220-ac06-db6d302d9bce">
+									<jr:columnHeader height="20">
+										<textField>
+											<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="45" height="20" forecolor="#FFFFFF" backcolor="#333333" uuid="85c91a73-1b8b-4a5d-98b4-0be5ec4d6987"/>
+											<textFieldExpression><![CDATA["Lat"]]></textFieldExpression>
+										</textField>
+									</jr:columnHeader>
+									<jr:detailCell height="15">
+										<textField textAdjust="StretchHeight" pattern="yyyy-MM-dd">
+											<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="15" uuid="4960985b-37a7-4d2a-9491-35873fc43d62"/>
+											<box leftPadding="5" rightPadding="5">
+												<leftPen lineWidth="0.5"/>
+												<bottomPen lineWidth="0.5"/>
+												<rightPen lineWidth="0.5"/>
+											</box>
+											<textElement textAlignment="Right"/>
+											<textFieldExpression><![CDATA[$F{latitude}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+								<jr:column width="45" uuid="c2b11e90-1de4-4cd7-bfc5-ac05e3566ba3">
+									<jr:columnHeader height="20">
+										<textField>
+											<reportElement style="Sans_Bold" mode="Opaque" x="0" y="0" width="45" height="20" forecolor="#FFFFFF" backcolor="#333333" uuid="b7cc8877-6f13-4963-baa5-76f3c973caf9"/>
+											<textFieldExpression><![CDATA["Long"]]></textFieldExpression>
+										</textField>
+									</jr:columnHeader>
+									<jr:detailCell height="15">
+										<textField textAdjust="StretchHeight" pattern="yyyy-MM-dd">
+											<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="15" uuid="aed50df5-1de5-47e1-92d4-2a175fcf7003"/>
+											<box leftPadding="5" rightPadding="5">
+												<leftPen lineWidth="0.5"/>
+												<bottomPen lineWidth="0.5"/>
+												<rightPen lineWidth="0.5"/>
+											</box>
+											<textElement textAlignment="Right"/>
+											<textFieldExpression><![CDATA[$F{longitude}]]></textFieldExpression>
+										</textField>
+									</jr:detailCell>
+								</jr:column>
+							</jr:columnGroup>
+						</jr:columnGroup>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>
