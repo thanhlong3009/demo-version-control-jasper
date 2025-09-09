@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version
-6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
-	name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20"
-	rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8fe01cd-77d0-453a-afef-97d3c6eee57c">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record" />
-	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/" />
-	<property name="ireport.jasperserver.user" value="jasperadmin" />
-	<property name="ireport.jasperserver.reportUnit" value="/reports/interactive/Hello" />
-	<property name="ireport.callouts"
-		value="callouts.1.bounds=254,222,200,200\ncallouts.1.bg=255,255,0\ncallouts.1.fg=0,0,0\ncallouts.1.text=tranlong 10\:32, 09/09/2025\n" />
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8fe01cd-77d0-453a-afef-97d3c6eee57c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.reportUnit" value="/reports/interactive/Hello"/>
+	<property name="ireport.callouts" value="callouts.1.bounds=254,222,200,200\n\n\n\n\n\n\n\n\ncallouts.2.bounds=130,30,199,199\ncallouts.1.bg=255,255,0\n\n\n\n\n\n\n\n\ncallouts.2.text=tranlong 10\:47, 09/09/2025\ncallouts.2.bg=255,255,0\ncallouts.1.fg=0,0,0\n\n\n\n\n\n\n\n\ncallouts.1.text=tranlong 10\:32, 09/09/2025\n\n\n\n\n\n\n\n\ncallouts.2.fg=0,0,0\n"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
 	<background>
-		<band splitType="Stretch" />
+		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="122" splitType="Stretch" />
+		<band height="94" splitType="Stretch"/>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch" />
+		<band height="51" splitType="Stretch">
+			<textField>
+				<reportElement x="410" y="21" width="100" height="30" uuid="96add22c-5fbc-4f5e-9d59-e072f28a8963"/>
+				<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch" />
+		<band height="61" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch" />
+		<band height="125" splitType="Stretch"/>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch" />
+		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch" />
+		<band height="54" splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch" />
+		<band height="42" splitType="Stretch"/>
 	</summary>
 </jasperReport>

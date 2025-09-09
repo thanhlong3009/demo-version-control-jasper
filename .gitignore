@@ -80,3 +80,14 @@ Thumbs.db
 *~
 *.bak
 *.swp
+
+# Ignore old scripts and configs (cleaned up)
+create-import-zip.sh
+deploy-ant-only.sh
+deploy-rest-api.sh
+fix-environment.sh
+fix-java-compatibility.sh
+js-export.properties
+js-import.properties
+pull-from-server.sh
+setup.sh
