@@ -5,7 +5,6 @@
 	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
 	<property name="ireport.jasperserver.reportUnit" value="/reports/interactive/Hello"/>
-	<property name="ireport.callouts" value="callouts.1.bounds=197,205,200,200\ncallouts.1.bg=255,255,0\ncallouts.1.fg=0,0,0\ncallouts.1.text=tranlong 16\:27, 08/09/2025\n"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -13,11 +12,7 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="122" splitType="Stretch">
-			<ellipse>
-				<reportElement x="157" y="20" width="113" height="102" uuid="e6a5d22f-4448-4b50-84b2-c993562380e9"/>
-			</ellipse>
-		</band>
+		<band height="122" splitType="Stretch"/>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
