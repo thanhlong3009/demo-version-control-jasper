@@ -5,6 +5,8 @@
 	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
 	<property name="ireport.jasperserver.reportUnit" value="/reports/interactive/Hello"/>
+	<property name="ireport.callouts" value="callouts.1.bounds=254,222,200,200\ncallouts.1.bg=255,255,0\ncallouts.1.fg=0,0,0\ncallouts.1.text=tranlong 10\:32, 09/09/2025\n"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/interactive/Hello_files/Hello_"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
