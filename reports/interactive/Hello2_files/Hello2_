@@ -5,7 +5,7 @@
 	<property name="ireport.jasperserver.url" value="http://localhost:8080/jasperserver-pro/"/>
 	<property name="ireport.jasperserver.user" value="jasperadmin"/>
 	<property name="ireport.jasperserver.reportUnit" value="/reports/interactive/Hello2"/>
-	<property name="ireport.callouts" value="callouts.1.bounds=274,167,200,200\ncallouts.1.bg=255,255,0\ncallouts.1.fg=0,0,0\ncallouts.1.text=tranlong 16\:59, 08/09/2025\n"/>
+	<property name="ireport.jasperserver.report.resource" value="/reports/interactive/Hello2_files/Hello2_"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -13,7 +13,12 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="188" y="53" width="100" height="30" uuid="f4f533f9-8981-494c-9b4a-486eb413bd8e"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
@@ -22,7 +27,12 @@
 		<band height="61" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="215" y="83" width="100" height="30" uuid="7f6acdee-f565-407e-b93f-ec3aee7acff4"/>
+				<text><![CDATA[Static Text]]></text>
+			</staticText>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
